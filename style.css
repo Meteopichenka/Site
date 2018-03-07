@@ -1,0 +1,151 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+.main {
+	padding-top: 20px;
+	margin-left: 15%;
+	width: 70%;
+	height: 100vh;
+	background-color: white;
+}
+.logo {
+	width: 100%;
+	height: 100px;
+	position: relative;
+	background-color: white;
+	line-height: 90px;
+	margin-bottom: 30px;
+}
+.logo_image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100px;
+	width: 100px;
+	background-image: url(logo_image.png);
+	background-size: cover;
+}
+.logo_text {
+	font-size: 56px;
+	vertical-align: middle;
+	margin: 0px;
+	margin-left: 100px;
+	color: #00094b;
+	font-family: Arial;
+	display: inline;
+}
+.settings {
+	position: absolute;
+	border-radius: 50%;
+	bottom: 30px;
+	right: 0;
+	width: 40px;
+	height: 40px;
+	background-image: url(shesternia.jpg);
+	background-size: cover;
+	transition: 0.5s;
+	z-index: 20;
+}
+.settings:hover {
+	transform: rotate(180deg);
+}
+.settings_block {
+	display: none;
+	position: absolute;
+	top: 85px;
+	right: -10px;
+	width: 400px;
+	height: 130px;
+	background-color: #e5e7f4;
+	border-radius: 10px;
+	box-shadow: -5px 5px 5px rgba(0,0,0,0.5);
+	z-index: 10;
+}
+.settings_block::after {
+	content: '';
+	top: -20px;
+	right: 20px;
+	position: absolute;
+	background-color: white;
+	border: 10px solid transparent;
+	border-bottom: 10px solid #e5e7f4;
+}
+.form_block {
+	padding: 0;
+}
+.meteo_id {
+	display: inline-block;
+	margin-left: 20px;
+	border-radius: 10px;;
+}
+.form_text {
+	margin-left: 20px;
+	font-size: 18px;
+	font-family: Arial;
+	color: #00094b;
+}
+.form_text_block_1 {
+	height: 40px;
+}
+.form_text_block_2 {
+	height: 40px;
+	display: inline-block;
+}
+.submit_block {
+	display: inline-block;
+	height: 40px;
+	margin-left: 40px;
+}
+.form_submit_button {
+	color: #00094b;
+	background-color: #cccfea;
+	font-size: 20px;
+	border-radius: 10px;
+}
+.date {
+	font-size: 36px;
+	margin: 0;
+	margin-top: 6px;
+	margin-right: 50px;
+	color: #00094b;
+	font-family: Arial;
+	display: inline;
+	float: right;
+	vertical-align: niddle;
+}
+.indicators {
+	margin-left: 60px;
+	z-index: 0;
+}
+.indicator {
+	width: 300px;
+	height: 50px;
+	background-color: white;
+	margin-bottom: 10px;
+	position: relative;
+}
+.indicator > p {
+	margin: 0;
+	margin-right: 60px;
+}
+.ind_img {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top: 0;
+	left: 0;
+	background-size: cover;
+}
+.temperature {
+	background-image: url(temperature.png);
+}
+.humidity {
+	background-image: url(humidity.png);
+}
+.co2 {
+	background-image: url(co2.png);
+}
+.atm_pressure {
+	background-image: url(atm_p.png);
+}
