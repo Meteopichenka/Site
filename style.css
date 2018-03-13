@@ -1,11 +1,11 @@
 body {
 	padding: 0;
 	margin: 0;
+	background-color: #e9ebee;
 }
 .main {
-	padding-top: 20px;
-	margin-left: 15%;
-	width: 70%;
+	margin: auto;
+	width: 1024px;
 	height: 100vh;
 	background-color: white;
 }
@@ -13,24 +13,26 @@ body {
 	width: 100%;
 	height: 100px;
 	position: relative;
-	background-color: white;
+	background-color: #cccfea;
 	line-height: 90px;
 	margin-bottom: 30px;
 }
 .logo_image {
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 10px;
 	height: 100px;
 	width: 100px;
 	background-image: url(logo_image.png);
 	background-size: cover;
+	margin-bottom: 30px;
+	border-bottom-left-radius: 10px;
 }
 .logo_text {
 	font-size: 56px;
 	vertical-align: middle;
 	margin: 0px;
-	margin-left: 100px;
+	margin-left: 110px;
 	color: #00094b;
 	font-family: Arial;
 	display: inline;
@@ -38,10 +40,10 @@ body {
 .settings {
 	position: absolute;
 	border-radius: 50%;
-	bottom: 30px;
-	right: 0;
-	width: 40px;
-	height: 40px;
+	bottom: 28px;
+	right: 17px;
+	width: 45px;
+	height: 45px;
 	background-image: url(shesternia.jpg);
 	background-size: cover;
 	transition: 0.5s;
@@ -54,20 +56,20 @@ body {
 	display: none;
 	position: absolute;
 	top: 85px;
-	right: -10px;
+	right: 0px;
 	width: 400px;
 	height: 130px;
 	background-color: #e5e7f4;
 	border-radius: 10px;
-	box-shadow: -5px 5px 5px rgba(0,0,0,0.5);
+	box-shadow: -3px 3px 5px rgba(0,0,0,0.5);
 	z-index: 10;
 }
 .settings_block::after {
 	content: '';
 	top: -20px;
-	right: 20px;
+	right: 30px;
 	position: absolute;
-	background-color: white;
+	background-color: #cccfea;
 	border: 10px solid transparent;
 	border-bottom: 10px solid #e5e7f4;
 }
@@ -77,7 +79,9 @@ body {
 .meteo_id {
 	display: inline-block;
 	margin-left: 20px;
-	border-radius: 10px;;
+	border-radius: 10px;
+	font-family: Arial;
+	color: #00094b;
 }
 .form_text {
 	margin-left: 20px;
@@ -96,18 +100,47 @@ body {
 	display: inline-block;
 	height: 40px;
 	margin-left: 40px;
+	border-radius: 12px;
 }
-.form_submit_button {
-	color: #00094b;
-	background-color: #cccfea;
-	font-size: 20px;
-	border-radius: 10px;
+input[type="submit"]{
+    display:block;
+    margin-top:1em;
+    padding:5px 15px;  
+    font-weight:bold;
+    color:#00094b;
+    background:white;
+    border-radius: 12px;
+	border: none;
+    background-image: linear-gradient(to bottom, #fff, #ddd);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow:0 1px 1px white;
+}
+input[type="submit"]:active{
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.6);
+	outline: none;
+	font-size: 13px;
+	padding: 6px 16px;
+}
+input[type="submit"]:focus{
+	outline: none;
+}
+input[type="text"]{
+    border:1px solid #ccc;
+    padding:4px 5px;
+    background:white;
+    border-radius: 10px;
+    box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-sizing:border-box;
+}
+input[type="text"]:focus {
+	box-shadow:0 0 5px rgba(50, 200, 255, 0.5);
+    outline:none;
 }
 .date {
 	font-size: 36px;
 	margin: 0;
 	margin-top: 6px;
-	margin-right: 50px;
+	margin-right: 70px;
 	color: #00094b;
 	font-family: Arial;
 	display: inline;
@@ -119,22 +152,48 @@ body {
 	z-index: 0;
 }
 .indicator {
-	width: 300px;
-	height: 50px;
-	background-color: white;
-	margin-bottom: 10px;
+	width: 200px;
+	height: 58px;
 	position: relative;
+	line-height: 60px;
+	z-index: 5;
+	border-bottom: 2px solid #cccfea;
 }
-.indicator > p {
+
+.indicator:hover {
+	background-color: #e5e7f4;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	border-radius: 10px;
+	border-bottom: 2px solid #e5e7f4;
+}
+.indicator:hover .graphics {
+	display: block;
+}
+.indicator:hover .temperature {
+	background-image: url(temperature_hover.png);
+}
+.indicator:hover .humidity {
+	background-image: url(humidity_hover.png);
+}
+.indicator:hover .co2 {
+	background-image: url(co2_hover.png);
+}
+.indicator:hover .atm_pressure {
+	background-image: url(atm_p_hover.png);
+}
+.indicator > span {
 	margin: 0;
-	margin-right: 60px;
+	margin-left: 65px;
+	font-size: 26px;
+	font-family: Arial;
+	color: #00094b;
 }
 .ind_img {
 	position: absolute;
 	width: 50px;
 	height: 50px;
-	top: 0;
-	left: 0;
+	top: 5px;
+	left: 5px;
 	background-size: cover;
 }
 .temperature {
@@ -148,4 +207,84 @@ body {
 }
 .atm_pressure {
 	background-image: url(atm_p.png);
+}
+.graphics {
+	width: 700px;
+	height: 280px;
+	background-color: #e5e7f4;
+	border-radius: 10px;
+	position: absolute;
+	top: -20px;
+	left: 200px;
+	display: none;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.g1::after {
+	content: '';
+	position: absolute;
+	top: 20px;
+	left: -10px;
+	background-color: #e5e7f4;
+	z-index: 50;
+	width: 20px;
+	height: 60px;
+}
+.g2 {
+	top: -80px;
+}
+.g2::after {
+	content: '';
+	position: absolute;
+	top: 80px;
+	left: -10px;
+	background-color: #e5e7f4;
+	z-index: 50;
+	width: 20px;
+	height: 60px;
+}
+.g3 {
+	top: -140px;
+}
+.g3::after {
+	content: '';
+	position: absolute;
+	top: 140px;
+	left: -10px;
+	background-color: #e5e7f4;
+	z-index: 50;
+	width: 20px;
+	height: 60px;
+}
+.g4 {
+	top: -200px;
+}
+.g4::after {
+	content: '';
+	position: absolute;
+	top: 200px;
+	left: -10px;
+	background-color: #e5e7f4;
+	z-index: 50;
+	width: 20px;
+	height: 60px;
+}
+footer {
+	width: 1024px;
+	margin: auto;
+	height: 50px;
+	background-color: #cccfea;
+	vertical-align: middle;
+}
+footer > span {
+	margin: 0px;
+	font-size: 40px;
+	font-family: Arial;
+	color: #00094b;
+}
+footer > span:nth-child(1) {
+	margin-left: 20px;
+}
+footer > span:nth-child(2) {
+	float: right;
+	margin-right: 20px;
 }

@@ -27,29 +27,36 @@
 				</form>
 			</div>
 			<div class = "settings" onclick = "showSettings()" id = "settings"></div>
-			<p id = "date" class = "date">15 June</p>
 		</div>
 		<div class = "indicators">
-			<div class = "indicator">
+			<div class = "indicator" id = "temper" onclick = "showTemperature()">
 				<div class = "ind_img temperature"></div>
-				<p></p>
+				<span>15</span>
+				<div class = 'graphics g1'></div>
 			</div>
 			<div class = "indicator">
 				<div class = "ind_img humidity"></div>
-				<p></p>
+				<span>40</span>
+				<div class = 'graphics g2'></div>
 			</div>
 			<div class = "indicator">
 				<div class = "ind_img co2"></div>
-				<p></p>
+				<span>200ppm</span>
+				<div class = 'graphics g3'></div>
 			</div>
 			<div class = "indicator">
 				<div class = "ind_img atm_pressure"></div>
-				<p></p>
+				<span>760mm</span>
+				<div class = 'graphics g4'></div>
 			</div>
 		</div>
 	</div>
+	<footer>
+		<span>NoName</span>
+		<span>Contacts</span>
+	</footer>
 	<script type="text/javascript">
-	Date.prototype.toMonthString=function(){
+	/*Date.prototype.toMonthString=function(){
 	switch(this.getMonth()){
 		case 0: return 'Jan'; break;
 		case 1: return 'Feb'; break;
@@ -69,8 +76,9 @@
 		var date = d.getDate();
 		var month = d.toMonthString();
 		document.getElementById('date').innerHTML = date + ' ' + month;
-		
+		*/
 		var settings_counter = 0;
+		
 		function showSettings() {
 		
 			var element = document.getElementById('settings_block');
@@ -91,8 +99,17 @@
 				settings_counter++;
 				
 			}
-			}
-			
+		}
+		function showTemperature(){
+			document.getElementById('').style.backgroundСolor = '#e5e7f4';
+			document.getElementById('temper_g').style.display = 'block';			
+		}	
+		/*
+			Перезагрузка блоку без повної перезагрузки сторінки
+			setInterval(function() {
+			$("#refresh").load(location.href+" #refresh>*","");
+			}, 10000); // milliseconds to wait
+		*/
 	</script>
  </body> 
 </html>
