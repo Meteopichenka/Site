@@ -1,115 +1,79 @@
 <!DOCTYPE html>
-<html>
- <head>
-	<title>MeteoHouse</title>
-	<link rel="shortcut icon" href="C:\Users\Boss\Desktop\метеостанція\favicon.ico" type="image/x-icon">
-	<link href="style.css" rel="stylesheet" type="text/css"
-	<meta charset="utf-8">
- </head>
- <body>
-	<div class = "main">
-		<div class = "logo">
-			<div class = "logo_image"></div>
-			<p class = "logo_text">MeteoHouse</p>
-			<div class = "settings_block" id = "settings_block">
-				<form class = "form_block">
-					<div class = "form_text_block_1">
-						<label for = "meteo_id"><span class = "form_text">Enter your MH id:</span></label>
-						<input type = "text" class = "meteo_id" id = "meteo_id">
-					</div>
-					<div class = "form_text_block_2"> 
-						<label for = "data_check"><span class = "form_text">Allow data to be used:</span></label>
-						<input type = "checkbox" class = "data_check" id = "data_check" checked>
-					</div>
-					<div class = "submit_block">
-						<input type = "submit" value = "Send" class = "form_submit_button">
-					</div>
-				</form>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MeteoHouse</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css">
+	<link rel="shortcut icon" href="C:\Users\Boss\Desktop\djangometeo\favicon.ico" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  </head>
+  <body>
+  <header class = "navbar bg-darkgreen">
+	<div class = "logo">
+		<div class = "header_img"></div>
+		<span class = "header_txt">MeteoHouse</span>
+	</div>
+	<form>
+		<input type = "submit" value = "Send" id = "submit_id">
+		<input type = "text" placeholder="Enter your MH id:" onclick ="showSubmit()">
+	</form>
+	<div class = "set" onclick = "showForm()" id = "set_but">
+		<div class = "s s1"></div>
+		<div class = "s s2"></div>
+		<div class = "s s3"></div>
+	</div>
+  </header>
+  <div class = "settings_block" id = "set_block">
+	<div class = "set_head">
+		<div class = "set_head_img" onclick = "hideForm()"></div>
+	</div>
+  </div>
+<div class="main container clearfix">
+	<div class = "container-fluid holder" id = "holder">
+		<div class = "data-block">
+			<div class = "data_item item1" id = "item1" onclick="change(this)">
+
 			</div>
-			<div class = "settings" onclick = "showSettings()" id = "settings"></div>
+			<div class = "data_item item2" id = "item2" onclick="change(this)">
+
+			</div>
+			<div class = "data_item item3" id = "item3" onclick="change(this)">
+
+			</div>
+			<div class = "data_item item4" id = "item4" onclick="change(this)">
+
+			</div>
+			<div class = "data_item item5" id = "item5" onclick="change(this)">
+
+			</div>
 		</div>
-		<div class = "indicators">
-			<div class = "indicator" id = "temper" onclick = "showTemperature()">
-				<div class = "ind_img temperature"></div>
-				<span>15</span>
-				<div class = 'graphics g1'></div>
-			</div>
-			<div class = "indicator">
-				<div class = "ind_img humidity"></div>
-				<span>40</span>
-				<div class = 'graphics g2'></div>
-			</div>
-			<div class = "indicator">
-				<div class = "ind_img co2"></div>
-				<span>200ppm</span>
-				<div class = 'graphics g3'></div>
-			</div>
-			<div class = "indicator">
-				<div class = "ind_img atm_pressure"></div>
-				<span>760mm</span>
-				<div class = 'graphics g4'></div>
-			</div>
+    <div class = "graphic_block graphic1">
+      <canvas id="myChart1" height= "100"></canvas>
+    </div>
+    <div class = "graphic_block graphic2">
+      <canvas id="myChart2" height= "100"></canvas>
+    </div>
+    <div class = "graphic_block graphic3">
+      <canvas id="myChart3" height= "100"></canvas>
+    </div>
+    <div class = "graphic_block graphic4">
+      <canvas id="myChart4" height= "100"></canvas>
+    </div>
+    <div class = "graphic_block graphic5">
+      <canvas id="myChart5" height= "100"></canvas>
+    </div>
+	</div>
+	<div class = "container">
+		<div class = "row">
+			<div class ="col-sm-12">
 		</div>
 	</div>
-	<footer>
-		<span>NoName</span>
-		<span>Contacts</span>
-	</footer>
-	<script type="text/javascript">
-	/*Date.prototype.toMonthString=function(){
-	switch(this.getMonth()){
-		case 0: return 'Jan'; break;
-		case 1: return 'Feb'; break;
-		case 2: return 'Mar'; break;
-		case 3: return 'Apr'; break;
-		case 4: return 'May'; break;
-		case 5: return 'June'; break;
-		case 6: return 'Jul'; break;
-		case 7: return 'Aug'; break;
-		case 8: return 'Sept'; break;
-		case 9: return 'Oct'; break;
-		case 10: return 'Nov'; break;
-		case 11: return 'Dec'; break;
-		}
-	}
-		var d = new Date();
-		var date = d.getDate();
-		var month = d.toMonthString();
-		document.getElementById('date').innerHTML = date + ' ' + month;
-		*/
-		var settings_counter = 0;
-		
-		function showSettings() {
-		
-			var element = document.getElementById('settings_block');
-			var button = document.getElementById('settings');
-			
-			if(settings_counter % 2 == 0)
-			{
-				element.style.display = 'block';
-				button.style.transform = '180deg';
-				button.style.transition = '0s';
-				settings_counter++;
-			} 
-			else if(settings_counter % 2 != 0)
-			{
-				element.style.display = 'none';
-				button.style.transform = '0deg';
-				button.style.transition = '0.5s';
-				settings_counter++;
-				
-			}
-		}
-		function showTemperature(){
-			document.getElementById('').style.backgroundСolor = '#e5e7f4';
-			document.getElementById('temper_g').style.display = 'block';			
-		}	
-		/*
-			Перезагрузка блоку без повної перезагрузки сторінки
-			setInterval(function() {
-			$("#refresh").load(location.href+" #refresh>*","");
-			}, 10000); // milliseconds to wait
-		*/
-	</script>
- </body> 
+</div>
+	<script src = "script.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  </body>
 </html>
