@@ -199,6 +199,16 @@ header > form > input[type = "submit"] {
 .s3 {
 	right: 0;
 }
+@media only screen and (max-width: 1200px){
+.canv {
+	height: 85px;
+}
+}
+@media only screen and (max-width: 990px){
+.canv {
+	height: 55px
+}
+}
 @media only screen and (max-width: 767px){
 .graphic_block {
 	display: none;
@@ -206,6 +216,9 @@ header > form > input[type = "submit"] {
 	height: 200px;
 	background-color: #f7fdf7;
 	border-right: none;
+}
+.cav {
+	height: 100px;
 }
 .data_item {
 	transition: 0.3s;
