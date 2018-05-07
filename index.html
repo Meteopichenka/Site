@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>MeteoHouse</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css" type="text/css">
-	<link rel="shortcut icon" href="C:\Users\Boss\Desktop\djangometeo\favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./materials/style.css" type="text/css">
+	<link rel="shortcut icon" href="./materials/favicon.ico" type="image/x-icon">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
   <header class = "navbar bg-darkgreen">
 	<div class = "logo">
 		<div class = "header_img"></div>
-		<span class = "header_txt">MeteoHouse</span>
+		<span class = "header_txt" id = "hd">MeteoHouse</span>
 	</div>
 	<form>
 		<input type = "submit" value = "Send" id = "submit_id">
-		<input type = "text" placeholder="Enter your MH id:" onclick ="showSubmit()">
+		<input type = "text" placeholder="Enter your MH id:">
 	</form>
 	<div class = "set" onclick = "showForm()" id = "set_but">
 		<div class = "s s1"></div>
@@ -26,9 +27,19 @@
 	</div>
   </header>
   <div class = "settings_block" id = "set_block">
-	<div class = "set_head">
-		<div class = "set_head_img" onclick = "hideForm()"></div>
-	</div>
+	  <div class = "set_head">
+		  <div class = "set_head_img" onclick = "hideForm()"></div>
+      <div class = "set_head_txt">
+        <span>Settings</span>
+      </div>
+  	</div>
+    <div class="form_block">
+      <form>
+        <label for = "form_text" class = "label_form">Enter your MH id:</label>
+        <input id = "form_text" type = 'text' /><br/>
+        <input type = 'submit' value = "Send" />
+      </form>
+    </div>
   </div>
 <div class="main container clearfix">
 	<div class = "container-fluid holder" id = "holder">
@@ -45,9 +56,6 @@
 			<div class = "data_item item4" id = "item4" onclick="change(this)">
 
 			</div>
-			<div class = "data_item item5" id = "item5" onclick="change(this)">
-
-			</div>
 		</div>
     <div class = "graphic_block graphic1">
       <canvas id="myChart1" class = "canv" height = "100"><canvas>
@@ -56,13 +64,10 @@
       <canvas id="myChart2" class ="canv" height = "100"></canvas>
     </div>
     <div class = "graphic_block graphic3">
-      <canvas id="myChart3"></canvas>
+      <canvas id="myChart3" class = "canv" height = "100"></canvas>
     </div>
     <div class = "graphic_block graphic4">
       <canvas id="myChart4" height= "100"></canvas>
-    </div>
-    <div class = "graphic_block graphic5">
-      <canvas id="myChart5" height= "100"></canvas>
     </div>
 	</div>
 	<div class = "container">
@@ -71,7 +76,7 @@
 		</div>
 	</div>
 </div>
-	<script src = "script.js"></script>
+	<script src = "./materials/script.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

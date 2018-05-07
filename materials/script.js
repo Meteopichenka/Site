@@ -1,31 +1,19 @@
-function showSubmit(){
-	var elem = document.getElementById("submit_id");
-	elem.style.display = "block";
-}
-function hideSubmit(){
-	var elem = document.getElementById("submit_id");
-	elem.style.display = "none";
-}
-
 function showForm(){
-	var block = document.getElementById("set_block");
-	var but = document.getElementById("set_but");
-	block.style.display = 'block';
-	setTimeout(moveLeft(), 10);
-	but.style.display = "none";
+ 	$('#set_but').hide();
+	var settings = $('#set_block');
+	settings.show();
+	setTimeout(function(){
+	settings.css('right', '0vw');
+  settings.css('visibility', 'visible');
+}, 0);
 }
 function hideForm(){
-	var block = document.getElementById("set_block");
-	var but = document.getElementById("set_but");
-	block.style.right = "-100vw";
-	block.style.display = "none";
-	but.style.display = "block";
+	$('#set_block').css('right', '');
+	setTimeout(function(){
+		$('#set_block').hide();
+	}, 300);
+	$('#set_but').show();
 }
-function moveLeft(){
-	var block = document.getElementById("set_block");
-	block.style.right = "0";
-}
-
 var items = document.getElementsByClassName("data_item");
 var iArray = Array.from(items);
 
@@ -35,10 +23,8 @@ var gArray = Array.from(gItems);
 function change(elemnt) {
 	for(var i = 0; i < iArray.length; i++){
 		iArray[i].style.backgroundColor = '';
-		iArray[i].style.borderBottomColor = '';
 	}
 	elemnt.style.backgroundColor = "#b9f0b4";
-	elemnt.style.borderBottomColor = "#b9f0b4";
 	var k;
 	for(var i = 0; i < iArray.length; i++){
 		if(iArray[i] === elemnt) {
@@ -56,8 +42,8 @@ function change(elemnt) {
 		 	iArray[k].style.marginBottom = "";
 		 	bHolder.style.height = "";
 		} else {
-			iArray[k].style.marginBottom = "200px";
-			bHolder.style.height = "500px";
+			iArray[k].style.marginBottom = "110px";
+			bHolder.style.height = "410px";
 		}
 	}
 	for(var i = 0; i < gArray.length; i++){
@@ -71,10 +57,10 @@ var myChart = new Chart(ctx1, {
     data: {
         labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
         datasets: [{
-						label: "temperature",
+						label: "Temperature",
             data: [3, 5, 55, 12, 30, -7, 5, 40, 20, 33],
             backgroundColor: "transparent",
-            borderColor: "black",
+            borderColor: "rgb(7, 189, 7)",
             borderWidth: 3
         }]
     },
@@ -95,10 +81,60 @@ var myChart = new Chart(ctx2, {
     data: {
         labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
         datasets: [{
-						label: "temperature",
-            data: [3, 5, 55, 12, 30, -7, 5, 40, 20, 33],
+						label: "Wind power",
+            data: [3, 5, 55, 12, 30, -7, 40, 40, 20, 33],
             backgroundColor: "transparent",
-            borderColor: "red",
+            borderColor: "rgb(7, 189, 7)",
+            borderWidth: 3
+        }]
+    },
+    options:{
+        scales: {
+            yAxes: [{
+								stacked: true,
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+var ctx3 = document.getElementById("myChart3");
+var myChart = new Chart(ctx3, {
+    type: 'line',
+		intersect: 'false',
+    data: {
+        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        datasets: [{
+						label: "Atmosphere preasure",
+            data: [3, 5, 55, 12, 30, -7, 30, 40, 20, 33],
+            backgroundColor: "transparent",
+            borderColor: "rgb(7, 189, 7)",
+            borderWidth: 3
+        }]
+    },
+    options:{
+        scales: {
+            yAxes: [{
+								stacked: true,
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+var ctx4 = document.getElementById("myChart4");
+var myChart = new Chart(ctx4, {
+    type: 'line',
+		intersect: 'false',
+    data: {
+        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        datasets: [{
+						label: "Humidity",
+            data: [3, 5, 55, 12, 30, -7, 0, 40, 20, 33],
+            backgroundColor: "transparent",
+            borderColor: "rgb(7, 189, 7)",
             borderWidth: 3
         }]
     },

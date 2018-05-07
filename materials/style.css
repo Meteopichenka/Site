@@ -18,7 +18,7 @@ body {
 .header_img {
 	width: 50px;
 	height: 50px;
-	background-image: url("logo_image.png");
+	background-image: url("../materials/logo_image.png");
 	background-size: cover;
 	position: absolute;
 	top: 0;
@@ -37,9 +37,10 @@ body {
 	position: absolute;
 	top: 0;
 	right: -100vw;
-	transition: 5s;
+	transition: .3s;
 	display: none;
 	z-index: 10;
+	visibility: hidden;
 }
 .set {
 	display: none;
@@ -121,7 +122,7 @@ header > form > input[type = "submit"] {
 .data_item {
 	display: block;
 	background-color: white;
-	height: 60px;
+	height: 75px;
 	width: 100%;
 	z-index: 5;
 	position: relative;
@@ -136,8 +137,8 @@ header > form > input[type = "submit"] {
 }
 .data_item::after {
 	content: '';
-	width: 50px;
-	height: 50px;
+	width: 57.5px;
+	height: 57.5px;
 	top: 5px;
 	left: 5px;
 	z-index: 100;
@@ -148,10 +149,13 @@ header > form > input[type = "submit"] {
 	background-image: url("temperature.png");
 }
 .item2::after {
-	background-image: url("co2.png");
+	background-image: url("wind.png");
 }
 .item3::after {
 	background-image: url("atm_p.png");
+}
+.item4::after {
+	background-image: url("humidity.png");
 }
 .data_item > div {
 	margin-left: 50px;
@@ -170,6 +174,7 @@ header > form > input[type = "submit"] {
 	width: calc(100% - 200px);
 	display: none;
 	z-index: 2;
+	border-bottom: 1px solid #188500;
 }
 .graphic1 {
 	display: block;
@@ -199,6 +204,54 @@ header > form > input[type = "submit"] {
 .s3 {
 	right: 0;
 }
+.form_block {
+	width: 200px;
+	margin: auto;
+	padding-top: 50px;
+}
+.form_block input[type = 'text']{
+	width: 100%;
+	border: none;
+	border-bottom: 2px solid #e3e4ec;
+	padding: 5px 10px;
+	color: #2ed41e;
+	transition: 0.3s;
+	margin-bottom: 20px;
+	font-family: Arial;
+}
+.form_block input[type = 'text']:focus {
+	outline: none;
+	border-color: #188000;
+	font-family: Arial;
+}
+.form_block input[type = 'submit']{
+	margin-left: calc(50% - 32px);
+	color: #188500;
+	border-radius: 10px;
+	padding: 2px 10px;
+	border: none;
+	background-color: #e7fae6;
+	font-size: 20px;
+	font-family: Arial;
+}
+.form_block input[type = 'submit']:focus {
+	outline: none;
+}
+.form_block input[type = 'submit']:active {
+	box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+}
+.label_form {
+	font-size: 20px;
+	color: #188500;
+}
+.set_head_txt {
+	margin-left: 80px;
+	line-height: 60px;
+}
+.set_head_txt > span {
+	font-size: 30px;
+	color: #ffffff;
+}
 @media only screen and (max-width: 1200px){
 .canv {
 	height: 85px;
@@ -222,6 +275,11 @@ header > form > input[type = "submit"] {
 }
 .data_item {
 	transition: 0.3s;
+	height: 60px;
+}
+.data_item::after {
+	height: 50px;
+	width: 50px;
 }
 .main {
 	padding: 0 30px;
@@ -257,6 +315,7 @@ header > form > input[type = "submit"] {
 	border-bottom: 1px solid #188500;
 }
 .graphic_block {
+	height: 200px;
 	display: none;
 }
 .navbar {
