@@ -9,8 +9,6 @@
 
       function printResult($result_set) {
         while(($row = $result_set->fetch_assoc()) != false){
-
-          //echo $row["temperature1"];
           $temperature = $row["temperature1"];
           $humidity = $row["humidity1"];
           $pressure = $row["pressure"];
@@ -32,6 +30,8 @@
 
       $result_set = $mysqli->query("SELECT * FROM `first`");
       $num_rows = mysqli_num_rows($result_set);
+
+
 // $result_set = $mysqli->query("SELECT * FROM `current-data` ORDER BY `cur-temperature` ASC");
        printResult($result_set);
 

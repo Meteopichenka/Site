@@ -10,59 +10,60 @@ $("document").ready(function(){
   $('#temperatureID').html(data.temperature);
   $('#humidityID').html(data.humidity);
   $('#pressureID').html(data.pressure);
+  $('#forecast').html(data.forecast);
   var wind = data.winddir;
   switch(wind) {
-    case 0:
+    case '0':
       $('#windID').html("Північний");
       break;
-    case 1:
-      $('#windID').html("Північно-східний");
+    case '1':
+      $('#windID').html("Пн-східний");
       break;
-    case 2:
-      $('#windID').html("Північно-східний");
+    case '2':
+      $('#windID').html("Пн-східний");
       break;
-    case 3:
-      $('#windID').html("Північно-східний");
+    case '3':
+      $('#windID').html("Пн-східний");
       break;
-    case 4:
+    case '4':
       $('#windID').html("Східний");
       break;
-    case 5:
-      $('#windID').html("Південно-східний");
+    case '5':
+      $('#windID').html("Пд-східний");
       break;
-    case 6:
-      $('#windID').html("Південно-східний");
+    case '6':
+      $('#windID').html("Пд-східний");
       break;
-    case 7:
-      $('#windID').html("Південно-східний");
+    case '7':
+      $('#windID').html("Пд-східний");
       break;
-    case 8:
+    case '8':
       $('#windID').html("Південний");
       break;
-    case 9:
-      $('#windID').html("Південно-західний");
+    case '9':
+      $('#windID').html("Пд-західний");
       break;
-    case 10:
-      $('#windID').html("Південно-західний");
+    case '10':
+      $('#windID').html("Пд-західний");
       break;
-    case 11:
-      $('#windID').html("Південно-західний");
+    case '11':
+      $('#windID').html("Пд-західний");
       break;
-    case 12:
+    case '12':
       $('#windID').html("Західний");
       break;
-    case 13:
-      $('#windID').html("Північно-західний");
+    case '13':
+      $('#windID').html("Пн-західний");
       break;
-    case 14:
-      $('#windID').html("Північно-західний");
+    case '14':
+      $('#windID').html("Пн-західний");
       break;
-    case 15:
-      $('#windID').html("Північно-західний");
+    case '15':
+      $('#windID').html("Пн-західний");
       break;
     default:
       $('#windID').html("nevidomo");
-      break;  
+      break;
   }
 }
 
@@ -142,7 +143,7 @@ var myChart = new Chart(ctx1, {
         labels: [1, 2, 3, 4, 5, 6],
         datasets: [{
 						label: "Temperature",
-            data: [11, 10, 10, 12, 13, 15],
+            data: [22, 23, 23, 22, 24, 24],
             backgroundColor: "transparent",
             borderColor: "black", //rgb(7, 189, 7)
             borderWidth: 3
@@ -191,7 +192,7 @@ var myChart = new Chart(ctx3, {
         labels: [1, 2, 3, 4, 5, 6],
         datasets: [{
 						label: "Atmosphere preasure",
-            data: [736, 740, 740, 740, 740, 740],
+            data: [758, 760, 758, 760, 760, 759],
             backgroundColor: "transparent",
             borderColor: "rgb(7, 189, 7)",
             borderWidth: 3
